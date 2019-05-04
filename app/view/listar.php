@@ -97,7 +97,7 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
             <div class="row justify-content-around" >                 
                   
     <!-- <form autocomplete="off" method="POST" action="registrar" name="form" id="form" >     -->
-    <form autocomplete="off" name="form" id="form" >           
+    <form autocomplete="off" name="formactuallizar" id="formactuallizar" >           
         <div class="form-row">           
             <div class="form-group col-md-6">
                 <label>Dni:</label>
@@ -155,7 +155,8 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="botonparaactuar" >Save changes</button>
+            
         </div>
         </div>
     </div>

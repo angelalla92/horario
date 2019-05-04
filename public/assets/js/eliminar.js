@@ -31,8 +31,9 @@ $(document).on('click','#botonactualizar',function(){
     }).done(function(Aaron){
         var data = Aaron[0];
         
-        console.log(data)
-
+        // console.log(data)
+        $('#botonparaactuar').removeData();
+        $('#botonparaactuar').attr('data-actualizar',data.dni)
         $('#dni').val(data.dni)
         $('#apeMa').val(data.apeMaterno)
         $('#apePa').val(data.apePaterno)
@@ -42,4 +43,28 @@ $(document).on('click','#botonactualizar',function(){
         $('#nombre').val(data.nombres)
         $('#s1').val(data.sexo)
     })
+})
+
+
+$('#botonparaactuar').on('click',function(a){
+    // a.preventDefault();
+    var dniparaactualizar = $(this).data('actualizar')
+    //serialize Codifique un conjunto de elementos de formulario como una cadena para el envío.
+    //obtener todos los valores de los inputs y select etc
+    var datitos2=$('#formactuallizar').serialize();
+
+    // console.log(datitos2)
+    $.ajax({
+        url: 'ajax/actualizarpracticantes.php',
+        method: 'post',
+        data: datitos2
+    }).done(function(XD2){
+     
+           if(XD2=="altualiso"){
+               alert("practicante actualizado");
+               $('#exampleModal').modal("hide");
+           }
+        
+    })
+
 })

@@ -13,6 +13,19 @@ class Practicante
     public function Practicante(){
         
     }
+    public function actualizar_practicandos($dni,$apeMaterno,$apePaterno,$nombre,$fecNacimiento,$sexo,$codTurno_fk,$descripcion){
+        $cn=new cn();
+        $mysqli=$cn->cn;
+        $stm=$mysqli->prepare("update practicantes set apeMaterno=?, apePaterno=?, nombres=?, fecNacimiento=?, sexo=?, codTurno_fk=?, descripcion=? where dni=?");
+        $stm->bind_param("ssssssss",$apeMaterno,$apePaterno,$nombre,$fecNacimiento,$sexo,$codTurno_fk,$descripcion,$dni);
+        $stm->execute();
+        if($stm->affected_rows>0){
+            $res="altualiso";
+        }else{
+            $res=$stm->error;
+        }
+        return $res;
+    }
     public function listar_practicantespordni($dni){
         $cn=new cn();
         $mysqli=$cn->cn;
