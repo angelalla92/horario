@@ -70,7 +70,7 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
         // echo $dn;
         // echo '<td><a href="eliminar?dni='.$dn.'">eliminar</a></td>';
         echo '<td><button class="" id="botonactualizar" data-dnid="'.$dn.'" data-toggle="modal" data-target="#exampleModal">Actualizar</button></td>';
-        echo '<td><button class="btn btn-info" id="btn-eliminar" data-dnid="'.$dn.'">Eliminar</button></td>';
+        echo '<td><button class="btn btn-info" id="btn-eliminar" data-dni="'.$dn.'">Eliminar</button></td>';
         echo '<td><a href="fprmularioreporte?nombre='.$nom.'&apellido1='.$apa.'&apellido2='.$ama.'">reportar</a></td>';
         //echo '<td><a id="cclinico" href="tarjeta.php?dni=' . $dni . '">eliminar</a></td>';
                 
