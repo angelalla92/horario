@@ -87,13 +87,71 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Formulario de Registro de practicantes</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            ...
+        <div class="container"  >
+            <div class="row justify-content-around" >                 
+                  
+    <!-- <form autocomplete="off" method="POST" action="registrar" name="form" id="form" >     -->
+    <form autocomplete="off" name="form" id="form" >           
+        <div class="form-row">           
+            <div class="form-group col-md-6">
+                <label>Dni:</label>
+                <input type="text" class="form-control" name="dni" id="dni"  placeholder="Escriba dni...">
+            </div>
+            <div class="form-group col-md-6">
+                <label>A. Paterno:</label>
+                <input type="text" class="form-control" name="apePa" id="apePa" placeholder="Escriba su apellido Paterno...">
+            </div>            
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>A. Materno:</label>
+                <input type="text" class="form-control" name="apeMa" id="apeMa" placeholder="Escriba su apellido Materno...">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Nombres:</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escriba su Nombres...">
+            </div>        
+            
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6"> 
+                <label>Fecha de Nacimiento:</label>              
+               <input type="date" class="form-control"  name="fech" id="fech" placeholder="">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Género:</label>
+                <select type="text" class="form-control" name="s" id="s1" placeholder="Seleccione género...">
+                    <option>Seleccione su género</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>            
+        </div>
+        <div class="form-row">            
+            <div class="form-group col-md-6">
+                <label>CodTurno:</label>
+                <select type="text" class="form-control" name="ct" id="ct" placeholder="Seleccione género...">
+                    <option>Seleccione su código</option>
+                    <option value="T1">T1</option>
+                    <option value="T2">T2</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Descripción:</label>
+                <textarea type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Escriba una descripción suya..."></textarea>
+            </div>
+        </div>        
+            
+    </form>
+                    
+            </div>
+    </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -102,8 +160,6 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
         </div>
     </div>
     </div>
-
-
     </div>
     </div>
     <script src="public/assets/js/eliminar.js"></script>

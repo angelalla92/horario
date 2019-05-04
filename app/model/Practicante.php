@@ -22,14 +22,15 @@ class Practicante
         $array=[];
         if($stm->error==''){
             $rs = $stm->get_result();
-            while($myrow = $rs->fecth_assoc()){
+            while($myrow = $rs->fetch_assoc()){
                 $array[]=$myrow;
             }
             $resultado=$array;
         }else{
             $resultado = $stm->error;
         }        
-        return $resultado;
+        $pjson=json_encode($resultado);
+        return $pjson;
     }
 
     public function litartardanzas(){

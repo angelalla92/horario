@@ -59,11 +59,11 @@
         <div class="form-row">
             <div class="form-group col-md-6"> 
                 <label>Fecha de Nacimiento:</label>              
-               <input type="date" class="form-control"  name="fech" id="fech" placeholder="">
+               <input type="date" class="form-control"  name="fech" id="fecha" placeholder="">
             </div>
             <div class="form-group col-md-6">
                 <label>Género:</label>
-                <select type="text" class="form-control" name="s" placeholder="Seleccione género...">
+                <select type="text" class="form-control" name="s" id="s" placeholder="Seleccione género...">
                     <option>Seleccione su género</option>
                     <option value="M">Masculino</option>
                     <option value="F">Femenino</option>
@@ -73,7 +73,7 @@
         <div class="form-row">            
             <div class="form-group col-md-6">
                 <label>CodTurno:</label>
-                <select type="text" class="form-control" name="ct" placeholder="Seleccione género...">
+                <select type="text" class="form-control" name="ct" id="ct" placeholder="Seleccione género...">
                     <option>Seleccione su código</option>
                     <option value="T1">T1</option>
                     <option value="T2">T2</option>

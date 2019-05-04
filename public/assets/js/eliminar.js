@@ -25,9 +25,21 @@ $(document).on('click','#botonactualizar',function(){
     $.ajax({
         url: 'ajax/listandopracticantes.php',
         method: 'post',
-        data:{dino:saurio}
+        data:{dino:saurio},
+        dataType:"json",
 
-    }).done(function(){
+    }).done(function(Aaron){
+        var data = Aaron[0];
+        
+        console.log(data)
 
+        $('#dni').val(data.dni)
+        $('#apeMa').val(data.apeMaterno)
+        $('#apePa').val(data.apePaterno)
+        $('#ct').val(data.codTurno_fk)
+        $('#descripcion').val(data.descripcion)
+        $('#fech').val(data.fecNacimiento)
+        $('#nombre').val(data.nombres)
+        $('#s1').val(data.sexo)
     })
 })

@@ -4,7 +4,7 @@ require_once '../app/model/Practicante.php';
 
 $respuesta = new Practicante();
 
-// $res =$variable->listar_practicantespordni();
-// echo $res;
-print_r($_POST);
+$res =$respuesta->listar_practicantespordni($_POST['dino']);
+echo $res;
+// print_r($_POST);
 ?>
