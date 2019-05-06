@@ -1,6 +1,6 @@
 <?php 
 require_once 'app/controller/home_controller.php';
-
+    var_dump($totPracticantes);
 ?>
 <!doctype html>
 <html lang="es">

@@ -11,7 +11,7 @@ Class Cn{
         $this->host="localhost";
         $this->db="senati";
         $this->user="root";
-        $this->password="123456";
+        $this->password="";
         $this->cn=new mysqli($this->host,$this->user,$this->password,$this->db);
         //var_dump($this->cn);
         $this->cn->set_charset("utf8");

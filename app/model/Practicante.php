@@ -104,9 +104,10 @@ class Practicante
         }else{
             $resultado = $stm->error;
         }
-        
+        $json = json_encode($resultado);
 
-        return $resultado;
+        return $json;
+        // return $resultado;
     }
     public function verPracticantes(){
         $cn=new Cn();
