@@ -29,6 +29,7 @@ $(document).on('click','#botonactualizar',function(){
         dataType:"json",
 
     }).done(function(Aaron){
+        
         var data = Aaron[0];
         
         // console.log(data)
@@ -42,6 +43,7 @@ $(document).on('click','#botonactualizar',function(){
         $('#fech').val(data.fecNacimiento)
         $('#nombre').val(data.nombres)
         $('#s1').val(data.sexo)
+        
     })
 })
 
@@ -52,7 +54,15 @@ $('#botonparaactuar').on('click',function(a){
     //serialize Codifique un conjunto de elementos de formulario como una cadena para el envío.
     //obtener todos los valores de los inputs y select etc
     var datitos2=$('#formactuallizar').serialize();
-
+    
+    var dniss=$('#dni').val();
+    var apellidossm=$('#apeMa').val();;
+    var apelidoss=$('#apePa').val();
+    var codigoss=$('#ct').val();
+    var descripcionss=$('#descripcion').val();
+    var fechass=$('#fech').val();
+    var nombress=$('#nombre').val();
+    var sexoss=$('#s1').val();    
     // console.log(datitos2)
     $.ajax({
         url: 'ajax/actualizarpracticantes.php',
@@ -62,9 +72,51 @@ $('#botonparaactuar').on('click',function(a){
      
            if(XD2=="altualiso"){
                alert("practicante actualizado");
-               $('#exampleModal').modal("hide");
+               $('#exampleModal').modal("hide");               
+               $('#'+dniparaactualizar).html(`
+               <td></td>
+               <td>${dniss}</td>               
+               <td>${apelidoss}</td>
+               <td>${apellidossm}</td>
+               <td>${nombress}</td>
+               <td>${fechass}}</td>
+               <td>${sexoss}</td>
+               <td>${codigoss}</td>
+               <td>${descripcionss}</td>              
+               <td><button id="btn-eliminar" data-dni="${dniss}">Eliminar</button></td>            
+               <td><a href="fprmularioreporte?nombre=${nombress}&apellido1=${apelidoss}&apellido2=${apellidossm}">reportar</a></td>
+               <td><button class="" id="botonactualizar" data-dnid="${dniss}" data-toggle="modal" data-target="#exampleModal">Actualizar</button></td>
+               `);
            }
         
     })
 
+})
+
+$(document).ready(function(){
+    // alert('hola XD')
+    $.ajax({
+        url: 'ajax/listar_ajax.php',
+        dataType: 'json',
+    }).done(function(variable){
+        // console.log(variable[0].apePaterno)
+        $.each(variable,function(index,value){
+            console.log(index)
+            $('#idtabla').append(`<tr id=${value.dni}>
+            <td></td>
+            <td>${value.dni}</td>
+            <td>${value.apePaterno}</td>
+            <td>${value.apeMaterno}</td>
+            <td>${value.nombres}</td>
+            <td>${value.fecNacimiento}</td>
+            <td>${value.sexo}</td>
+            <td>${value.codTurno_fk}</td>
+            <td>${value.descripcion}</td>
+            <td><button id="btn-eliminar" data-dni="${value.dni}">Eliminar</button></td>            
+            <td><a href="fprmularioreporte?nombre=${value.nombres}&apellido1=${value.apePaterno}&apellido2=${value.apeMaterno}">reportar</a></td>
+            <td><button class="" id="botonactualizar" data-dnid="${value.dni}" data-toggle="modal" data-target="#exampleModal">Actualizar</button></td>
+            </tr>`)
+        })
+      
+    })
 })

@@ -33,7 +33,7 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
     <div class="container-fluid">
     <h3>listado de alumnos</h3>
     <div class="table-responsive">
-    <table class="table table-striped"">   
+    <table id="idtabla" class="table table-hover">   
     <thead class="thead-dark">
     <tr>
         <th>select</th>
@@ -50,16 +50,18 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
         <th>ACTUALIZAR</th>
     </tr>
    </thead>
-    <?php 
+   
+
+    <!-- <?php 
         foreach ($resultauo as $value) {        
         $dn=$value['dni'];
         $nom=$value['nombres'];
-        $apa=$value['apePAterno'];
+        $apa=$value['apePaterno'];
         $ama=$value['apeMaterno'];
         echo "<tr id='$dn'>";
         echo '<td> <input type="checkbox"></td>';
         echo '<td>' . $value['dni'] . '</td>';
-        echo '<td>' . $value['apePAterno'] . '</td>';
+        echo '<td>' . $value['apePaterno'] . '</td>';
         echo '<td>' . $value['apeMaterno'] . '</td>';
         echo '<td >' . $value['nombres'] . '</td>';
         echo '<td width="10%">' . $value['fecNacimiento'] . '</td>';
@@ -78,7 +80,7 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
         
     }
     //print_r($tardanza);
-    ?>
+    ?> -->
 
     </table>
 

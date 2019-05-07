@@ -29,7 +29,7 @@ class Practicante
     public function listar_practicantespordni($dni){
         $cn=new cn();
         $mysqli=$cn->cn;
-        $stm=$mysqli->prepare("select * from practicantes where dni=?");
+        $stm=$mysqli->prepare("SELECT * from practicantes where dni=?");
         $stm->bind_param("s",$dni);
         $stm->execute();
         $array=[];
@@ -104,9 +104,10 @@ class Practicante
         }else{
             $resultado = $stm->error;
         }
-        
+        $json = json_encode($resultado);
 
-        return $resultado;
+        return $json;
+        // return $resultado;
     }
     public function verPracticantes(){
         $cn=new Cn();
