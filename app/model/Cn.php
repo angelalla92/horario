@@ -9,7 +9,7 @@ Class Cn{
 
     public function Cn() {
         $this->host="localhost";
-        $this->db="senati";
+        $this->db="angela";
         $this->user="root";
         $this->password="";
         $this->cn=new mysqli($this->host,$this->user,$this->password,$this->db);

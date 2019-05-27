@@ -22,7 +22,7 @@ class Practicante
         if($stm->affected_rows>0){
             $res="altualiso";
         }else{
-            $res=$stm->error;
+            $res="no se actualizo";
         }
         return $res;
     }
@@ -46,23 +46,23 @@ class Practicante
         return $pjson;
     }
 
-    public function litartardanzas(){
-        $cn=new cn();
-        $mysqli=$cn->cn;
-        $stm=$mysqli->prepare("select codPracticante_fk,horEntrada from detalle_asistencia");       
-        $stm->execute();
-        $array=[];
-        if($stm->error==''){
-            $rs =  $stm->get_result();
-            while ($myrow = $rs->fetch_assoc()){
-                $array[]=$myrow;
-            }
-            $resultado = $array;
-        }else{
-            $resultado = $stm->error;
-        }
-        return $resultado;
-    }
+    // public function litartardanzas(){
+    //     $cn=new cn();
+    //     $mysqli=$cn->cn;
+    //     $stm=$mysqli->prepare("select codPracticante_fk,horEntrada from detalle_asistencia");       
+    //     $stm->execute();
+    //     $array=[];
+    //     if($stm->error==''){
+    //         $rs =  $stm->get_result();
+    //         while ($myrow = $rs->fetch_assoc()){
+    //             $array[]=$myrow;
+    //         }
+    //         $resultado = $array;
+    //     }else{
+    //         $resultado = $stm->error;
+    //     }
+    //     return $resultado;
+    // }
     public function insertar($dni,$apeMaterno,$apePaterno,$nombre,$fecNacimiento,$sexo,$codTurno_fk,$descripcion){
         $cn=new Cn();
         $mysqli=$cn->cn;
@@ -92,7 +92,10 @@ class Practicante
     public function listar_m(){
         $cn=new Cn();
         $mysqli=$cn->cn;
-        $stm=$mysqli->prepare("call listarPracticantes()");
+        // $stm=$mysqli->prepare("call listarPracticantes()");
+        $stm=$mysqli->prepare("SELECT * FROM practicantes");
+        // print_r($cn);
+        // exit;
         $stm->execute();
         $array=[];
         if($stm->error==''){
