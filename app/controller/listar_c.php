@@ -7,5 +7,6 @@ $resultauo = $variable->listar_m();
 // $tardanza = $variable->litartardanzas();
 // print_r($tardanza);
 //print_r($variable);
-echo $resultauo;
+
+// echo $resultauo;aparece en la vista de lista el arreglo..XD
 ?>

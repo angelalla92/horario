@@ -7,7 +7,7 @@ setlocale(LC_ALL,'es_ES.UTF-8');
 $fecha1=new DateTime();
 $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
 
-// print_r($fecha);
+print_r($fecha);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +32,7 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
 </style>
     <div class="container-fluid">
     <h3>listado de alumnos</h3>
+    <input type="text" id="identificador">
     <div class="table-responsive">
     <table id="idtabla" class="table table-hover">   
     <thead class="thead-dark">
@@ -50,7 +51,7 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
         <th>ACTUALIZAR</th>
     </tr>
    </thead>
-   
+   <tbody>
 
     <!-- <?php 
         foreach ($resultauo as $value) {        
@@ -81,9 +82,12 @@ $fecha= strftime("%A, %d de %B del %Y", $fecha1->getTimestamp());
     }
     //print_r($tardanza);
     ?> -->
-
+   </tbody>
     </table>
-
+        <label for="">Alumno:</label>
+            <select name="alumn" id="alumi">
+                <option value="">seleccione un Alumno</option>
+            </select>
 <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

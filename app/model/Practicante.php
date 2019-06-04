@@ -13,6 +13,25 @@ class Practicante
     public function Practicante(){
         
     }
+    public function buscar_practicante($dni){
+        $cn=new cn();
+        $mysqli=$cn->cn;
+        $stm=$mysqli->prepare(" call sp_busquita (?)");
+        $stm->bind_param("s",$dni);
+        $stm->execute();
+        $array=[];
+        if($stm->error==''){
+            $rs=$stm->get_result();
+            while($myrow = $rs->fetch_assoc()){
+                $array[]=$myrow;
+            }
+            $resultado=$array;
+        }else{
+            $resultado = $stm->error;
+        }
+        $pjson=json_encode($resultado);
+        return $pjson;
+    }
     public function actualizar_practicandos($dni,$apeMaterno,$apePaterno,$nombre,$fecNacimiento,$sexo,$codTurno_fk,$descripcion){
         $cn=new cn();
         $mysqli=$cn->cn;

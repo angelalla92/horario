@@ -93,15 +93,15 @@ $('#botonparaactuar').on('click',function(a){
 
 })
 
-$(document).ready(function(){
-    // alert('hola XD')
+function angela(){
     $.ajax({
         url: 'ajax/listar_ajax.php',
         dataType: 'json',
     }).done(function(variable){
         // console.log(variable[0].apePaterno)
         $.each(variable,function(index,value){
-            console.log(index)
+            // console.log(index)
+            $('#alumi').append(`<option value=${value.dni}>${value.apePaterno}</option>`);
             $('#idtabla').append(`<tr id=${value.dni}>
             <td></td>
             <td>${value.dni}</td>
@@ -119,4 +119,49 @@ $(document).ready(function(){
         })
       
     })
+}
+
+$(document).ready(function(){
+    // alert('hola XD')
+    angela();
+})
+
+$('#identificador').keyup(function(){
+    var palabra= $(this).val();
+    // console.log(palabra.length);
+    // alert("asdasd");
+    if(palabra.length>=2){
+        console.log(palabra);
+        // alert(palabra);
+        $.ajax({
+            url:'ajax/buscar_practicantes.php',
+            dataType: 'json',
+            method:'post',
+            data:{palabra2: palabra}
+        }).done(function(variable){
+          console.log(variable)
+          $("#idtabla tbody").html("");
+
+          $.each(variable,function(index,value){
+            // console.log(index)            
+            $('#idtabla tbody').append(`<tr id=${value.dni}>
+            <td></td>
+            <td>${value.dni}</td>
+            <td>${value.apePaterno}</td>
+            <td>${value.apeMaterno}</td>
+            <td>${value.nombres}</td>
+            <td>${value.fecNacimiento}</td>
+            <td>${value.sexo}</td>
+            <td>${value.codTurno_fk}</td>
+            <td>${value.descripcion}</td>
+            <td><button id="btn-eliminar" data-dni="${value.dni}">Eliminar</button></td>            
+            <td><a href="fprmularioreporte?nombre=${value.nombres}&apellido1=${value.apePaterno}&apellido2=${value.apeMaterno}">reportar</a></td>
+            <td><button class="" id="botonactualizar" data-dnid="${value.dni}" data-toggle="modal" data-target="#exampleModal">Actualizar</button></td>
+            </tr>`)
+        })
+        })
+    }else if(palabra.length==0){  
+        $("#idtabla tbody").html("");       
+        angela();        
+    } 
 })
