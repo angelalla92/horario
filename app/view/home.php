@@ -1,6 +1,6 @@
 <?php 
 require_once 'app/controller/home_controller.php';
-    var_dump($totPracticantes);
+    // var_dump($totPracticantes);
 ?>
 <!doctype html>
 <html lang="es">
@@ -31,46 +31,50 @@ require_once 'app/controller/home_controller.php';
     </script>
 </head>
 
-<body>
-    <div class="main col-xl-11 col-md-12 col-12 row">
+<body>   
+        <div class="main col-xl-11 col-md-12 col-12 row">
+        <div class="col-md-12 bg-light ">
+            <label for="">FECHA INICIO</label>
+            <input type="date" value="<?php echo date("Y-m-d"); ?>" class="form-control col-md-2 mb-2" name="fecini"> 
+        </div>
         <div class="contenedor col-xl-6">
-        <div class="formulario-marcar">
-            <h2>MARCAR ASISTENCIA</h2>
+            <div class="formulario-marcar">
+                <h2>MARCAR ASISTENCIA</h2>
                 <div class="form-row">
                     <div class="form-group col-12">
                         <select class="custom-select" id="select-practicante">
                             <option selected value="0">Escoger</option>
                             <?php for ($i=0; $i <= sizeof($totPracticantes) ; $i++) { 
-                               echo "<option class='";
-                               if(empty($totPracticantes[$i]['horEntrada'])){
+                            echo "<option class='";
+                            if(empty($totPracticantes[$i]['horEntrada'])){
                                 echo "incompleto";
-                               }elseif(empty($totPracticantes[$i]['horSalida'])){
+                            }elseif(empty($totPracticantes[$i]['horSalida'])){
                                 echo "salida";
-                               }else{
+                            }else{
                                 echo "completo";
-                               }
-                               echo "' value='".$totPracticantes[$i]['dni']."'>".$totPracticantes[$i]['nomCompleto']."</option>";
+                            }
+                            echo "' value='".$totPracticantes[$i]['dni']."'>".$totPracticantes[$i]['nomCompleto']."</option>";
                             } ?>
                         </select>
                     </div>
                 </div>
                 <div class="form-row">
-                        <div id="nombre-practicante" class='col-md-5 nombre-practicante'>
-                            <p>
-                                <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                                <span>Ningun practicante seleccionado</span>
-                            </p>
-                        </div>
-                        <div id="opciones-practicante" class='col-md-7 row m-auto'>
-                            <div class="col-12 col-md-6" id="div-button-ingreso">
+                    <div id="nombre-practicante" class='col-md-5 nombre-practicante'>
+                        <p>
+                            <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                            <span>Ningun practicante seleccionado</span>
+                        </p>
+                    </div>
+                    <div id="opciones-practicante" class='col-md-7 row m-auto'>
+                        <div class="col-12 col-md-6" id="div-button-ingreso">
                             <button class='btn btn-default col disabled' data-action='disable'>Registrar Entrada</button>
-                            </div>
-                            <div class="col-12 col-md-6" id="div-button-salida">
-                            <button class='btn btn-default col disabled' data-action='disable'>Registrar Salida</button>
-                            </div>
                         </div>
+                        <div class="col-12 col-md-6" id="div-button-salida">
+                            <button class='btn btn-default col disabled' data-action='disable'>Registrar Salida</button>
+                        </div>
+                    </div>
                 </div>
-        </div>
+            </div>
         </div>
         <div class="contenedor col-xl-6">
         <div class="formulario-marcar">
