@@ -124,6 +124,7 @@ function angela(){
 $(document).ready(function(){
     // alert('hola XD')
     angela();
+    $('#alumi').select2();
 })
 
 $('#identificador').keyup(function(){
