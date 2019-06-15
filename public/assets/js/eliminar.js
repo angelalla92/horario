@@ -56,7 +56,7 @@ $('#botonparaactuar').on('click',function(a){
     var datitos2=$('#formactuallizar').serialize();
     
     var dniss=$('#dni').val();
-    var apellidossm=$('#apeMa').val();;
+    var apellidossm=$('#apeMa').val();
     var apelidoss=$('#apePa').val();
     var codigoss=$('#ct').val();
     var descripcionss=$('#descripcion').val();
@@ -125,6 +125,17 @@ $(document).ready(function(){
     // alert('hola XD')
     angela();
     $('#alumi').select2();
+    $('#alumi').on("change",function(){
+        var search = $(this).val();
+        $.ajax({
+            url:'ajax/buscar_practicantes.php',
+            dataType: 'json',
+            method: 'post',
+            data:{palabra2: search}
+        }).done(function(search2){
+            console.log(search2)
+        })
+    })
 })
 
 $('#identificador').keyup(function(){
